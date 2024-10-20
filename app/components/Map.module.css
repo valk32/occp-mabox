@@ -1,0 +1,296 @@
+/* Main container */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full height of the viewport */
+    font-family: 'Montserrat', sans-serif; /* Clean, modern font */
+}
+
+/* Add Device Form at the top */
+.addDeviceForm {
+    width: 100%;
+    padding: 20px;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* margin-bottom: 20px; */
+    border-bottom: 2px solid #e0e0e0; /* Subtle border to separate the map */
+}
+
+.title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #34495e;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Input fields for device form */
+.input {
+    width: 15%; /* Adjust width for better responsiveness */
+    padding: 10px;
+    margin: 0 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input:focus {
+    border-color: #3498db; /* Change border color on focus */
+    outline: none;
+}
+
+/* Submit button styling */
+/* Submit button styling */
+.submitBtn {
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #34bdfa, #5f6df1); /* Gradient background for a modern look */
+    color: white;
+    border: none;
+    border-radius: 30px; /* Fully rounded button */
+    font-size: 0.8rem; /* Slightly larger font */
+    font-weight: bold; /* Bold text for emphasis */
+    text-transform: uppercase; /* Make text all caps */
+    letter-spacing: 1px; /* Spacing between letters */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.submitBtn:hover {
+    background: linear-gradient(45deg, #2ecc71, #3498db); /* Reverse the gradient on hover */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    transform: translateY(-2px); /* Slight upward lift on hover */
+}
+
+.submitBtn:active {
+    transform: translateY(0); /* Button goes back to original position on click */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Softer shadow on click */
+}
+
+.submitBtn:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5); /* Custom focus outline for accessibility */
+}
+
+
+/* Map and Sidebar container */
+.mapInfoContainer {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden; /* Prevents scrolling issues */
+}
+
+/* Map Section */
+.map {
+    width: 75%;
+    height: 100%;
+    position: relative;
+}
+
+/* Sidebar (Connected Devices Info) */
+.sidebar {
+    width: 25%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    border-left: 1px solid #e0e0e0;
+}
+
+/* Search input for devices */
+.searchInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+.searchInput:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Device List in Sidebar */
+/* Device List (Styled as cards) */
+.deviceList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid for cards */
+    gap: 20px; /* Space between cards */
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+/* Each device card */
+.deviceItem {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.deviceItem:hover {
+    transform: translateY(-10px); /* Lift the card on hover */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Device info styling inside the card */
+.deviceInfo {
+    text-align: left;
+}
+
+/* Device title */
+.deviceInfo h4 {
+    margin: 0 0 10px;
+    font-size: 1.4rem;
+    color: #34495e;
+    font-weight: 600;
+}
+
+/* Device details text */
+.deviceInfo p {
+    margin: 0;
+    font-size: 1rem;
+    color: #7f8c8d;
+    line-height: 1.4;
+}
+
+/* Card footer (could be additional info like power or zip code) */
+.cardFooter {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #b0b0b0;
+}
+
+/* Responsive layout for the device cards */
+@media (max-width: 768px) {
+    .deviceItem {
+        padding: 15px;
+    }
+
+    .deviceInfo h4 {
+        font-size: 1.2rem;
+    }
+
+    .deviceInfo p {
+        font-size: 0.9rem;
+    }
+}
+
+/* No devices found message */
+.noDevices {
+    text-align: center;
+    color: #e74c3c;
+}
+
+/* Scrollbar styling for the sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: #888;
+}
+
+/* Popup content container */
+.popup-content {
+    font-family: Arial, sans-serif;
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.popup-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 0 10px;
+    color: #333333;
+}
+
+.popup-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.popup-body p {
+    margin: 5px 0;
+    color: #555555;
+}
+
+.popup-zip, .popup-power {
+    font-weight: bold;
+}
+
+.popup-details {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.popup-zip, .popup-power {
+    color: #333333;
+}
+
+.popup-body {
+    border-top: 1px solid #eeeeee;
+    padding-top: 8px;
+}
+
+/* Styling the default Mapbox close button */
+.mapboxgl-popup-close-button {
+    background: none; /* Remove default background */
+    color: #333; /* Set text color */
+    font-size: 16px; /* Adjust size */
+    border: none; /* Remove border */
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.mapboxgl-popup-close-button:hover {
+    color: #ff5c5c; /* Change color on hover */
+    background-color: transparent;
+}
+
+.custom-marker {
+    background-color: #2a9d8f;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+.custom-marker:hover {
+    transform: scale(1.2);
+    background-color: #e76f51;
+}
